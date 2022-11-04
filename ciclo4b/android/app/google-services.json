@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "982157364721",
+    "project_id": "ces-app-d27d4",
+    "storage_bucket": "ces-app-d27d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982157364721:android:ee63b9d80be9dfcf250850",
+        "android_client_info": {
+          "package_name": "com.example.ciclo4b"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982157364721-ef7dn8l9lln7leh0jbro6vqs3jtie6u6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF8siJ84-RebOKTSQDHUPEs6uHyQRHBbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982157364721-ef7dn8l9lln7leh0jbro6vqs3jtie6u6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
