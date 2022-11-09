@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: 'login_page',
       routes: {
         'login_page': (_) => const LoginPage(),
-        'opcion_scan_page': (_) => const OpcionScanPage(),
+        'opcion_scan_page': (_) => OpcionScanPage(),
       },
     );
   }
