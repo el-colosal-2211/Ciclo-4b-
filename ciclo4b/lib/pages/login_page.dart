@@ -6,14 +6,21 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _header(),
-            _Formulario(),
-            _botton(),
-          ],
-        ),
+      body: CustomScrollView(
+        scrollDirection: Axis.vertical,
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _header(),
+                _Formulario(),
+                _botton(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
