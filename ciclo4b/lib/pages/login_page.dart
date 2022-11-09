@@ -21,24 +21,9 @@ class LoginPage extends StatelessWidget {
   Widget _header() {
     return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 35.0),
-          child: Image.asset(
-            'assets/login2.png',
-            fit: BoxFit.scaleDown,
-          ),
-        ),
-        // ClipRRect(
-        //   child: Flexible(
-        //     child: Image.asset(
-        //       'assets/login4.png',
-        //       fit: BoxFit.cover,
-        //     ),
-        //   ),
-        // ),
         Image.asset(
-          'assets/login1.png',
-          fit: BoxFit.contain,
+          'assets/login.png',
+          fit: BoxFit.scaleDown,
         ),
         Positioned(bottom: 0, right: 185, child: _textoIngreso())
       ],
@@ -68,15 +53,15 @@ class LoginPage extends StatelessWidget {
       alignment: Alignment.bottomLeft,
       children: [
         SizedBox(
-          height: 170,
+          height: 172,
           child: Image.asset(
             'assets/login3.png',
-            fit: BoxFit.scaleDown,
+            fit: BoxFit.cover,
           ),
         ),
         Image.asset(
           'assets/login5.png',
-          fit: BoxFit.contain,
+          fit: BoxFit.cover,
         ),
         const Positioned(
           top: 0,
