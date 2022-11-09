@@ -109,7 +109,7 @@ class _Formulario extends StatelessWidget {
             _campoClave(),
             TextButton(
               onPressed: () {},
-              child: const Text('Olvidate la contraseña?'),
+              child: const Text('Olvidaste la contraseña?'),
             ),
             _botonIngresar(context),
             const SizedBox(height: 10.0),
@@ -132,15 +132,15 @@ class _Formulario extends StatelessWidget {
             Radius.circular(15.0),
           ),
         ),
-        labelText: 'Correo Electronico',
+        labelText: 'Correo Electrónico',
         labelStyle: TextStyle(fontWeight: FontWeight.bold),
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'El correo electronico es Obligatorio';
+          return 'El correo electrónico es Obligatorio';
         }
         if (!value.contains('@') && !value.contains('.')) {
-          return 'El correo no es valido';
+          return 'El correo es inválido';
         }
         return null;
       },
@@ -168,13 +168,15 @@ class _Formulario extends StatelessWidget {
         labelStyle: TextStyle(fontWeight: FontWeight.bold),
       ),
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'La contraseña es Obligatorio';
-        }
         //TODO: Preguntar que  no esta validando esta condicion
-        if (value.length == 6) {
-          return "Debe contener 6 caracteres";
+        // if (value!.length > 6) {
+        //   return "Debe contener al menos 6 caracteres";
+        // }
+        if (value == null || value.isEmpty) {
+          return 'La contraseña es Obligatoria';
         }
+
+        return null;
       },
     );
   }
