@@ -65,10 +65,7 @@ class OpcionScanPage extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        // if (formKey.currentState!.validate()) {
-
-        //   Navigator.pushNamed(context, 'opcion_scan_page');
-        // }
+        Navigator.pushNamed(context, 'scanner_ordinario_page');
       },
       child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 74, vertical: 21),
@@ -92,10 +89,7 @@ class OpcionScanPage extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        // if (formKey.currentState!.validate()) {
-
-        //   Navigator.pushNamed(context, 'opcion_scan_page');
-        // }
+        Navigator.pushNamed(context, 'scanner_extraordinario_page');
       },
       child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 52, vertical: 21),

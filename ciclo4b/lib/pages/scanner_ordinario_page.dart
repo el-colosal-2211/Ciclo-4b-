@@ -17,6 +17,7 @@ class ScanOrdinarioPage extends StatelessWidget {
       ),
     );
     return Scaffold(
+      extendBody: true,
       body: Container(
         alignment: Alignment.center,
         decoration: boxDecoration,
@@ -38,3 +39,4 @@ class ScanOrdinarioPage extends StatelessWidget {
     );
   }
 }
+//TODO: Cambiar colores del bottomNavigationBar
