@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:ciclo4b/pages/widgets/icono_atras.dart';
+
 class OpcionScanPage extends StatelessWidget {
   const OpcionScanPage({super.key});
 
@@ -25,22 +27,11 @@ class OpcionScanPage extends StatelessWidget {
           'assets/opciones_scan_cabeza.png',
           fit: BoxFit.scaleDown,
         ),
-        Positioned(top: 25, left: 5, child: _iconAtras(context)),
+        const Positioned(top: 25, left: 5, child: IconoAtras()),
         Positioned(top: 140, right: 80, child: _textoIngreso()),
         Positioned(
             bottom: 50, right: 25, child: _botonIngresarOrdinario(context)),
       ],
-    );
-  }
-
-  Widget _iconAtras(BuildContext context) {
-    return IconButton(
-      onPressed: (() => Navigator.pop(context)),
-      icon: const Icon(
-        Icons.arrow_circle_left_outlined,
-        size: 55,
-        color: Colors.white70,
-      ),
     );
   }
 

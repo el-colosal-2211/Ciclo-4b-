@@ -1,4 +1,6 @@
 import 'package:ciclo4b/firebase_options.dart';
+import 'package:ciclo4b/pages/scanner_extraordinario_page.dart';
+import 'package:ciclo4b/pages/scanner_ordinario_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +24,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CES APP',
-      initialRoute: 'login_page',
+      initialRoute: 'scanner_extraordinario_page',
       routes: {
         'login_page': (_) => const LoginPage(),
-        'opcion_scan_page': (_) => OpcionScanPage(),
+        'opcion_scan_page': (_) => const OpcionScanPage(),
+        'scanner_ordinario_page': (_) => const ScanOrdinarioPage(),
+        'scanner_extraordinario_page': (_) => const ScanExtraordinarioPage(),
       },
     );
   }
