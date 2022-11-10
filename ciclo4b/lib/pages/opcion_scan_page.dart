@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:ciclo4b/pages/widgets/icono_atras.dart';
+import 'package:ciclo4b/widgets/widgets.dart';
 
 class OpcionScanPage extends StatelessWidget {
   const OpcionScanPage({super.key});

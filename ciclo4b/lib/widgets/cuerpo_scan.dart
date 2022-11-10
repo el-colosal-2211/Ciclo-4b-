@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:ciclo4b/pages/widgets/icono_atras.dart';
+import 'package:ciclo4b/widgets/icono_atras.dart';
 
 class CuerpoScan extends StatelessWidget {
   final String imagen;
-  const CuerpoScan({super.key, required this.imagen});
+  final String texto;
+  const CuerpoScan({super.key, required this.imagen, required this.texto});
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,9 @@ class CuerpoScan extends StatelessWidget {
         const SizedBox(width: 35.0),
         Container(
           margin: const EdgeInsets.only(top: 25),
-          child: const Text(
-            'Ingreso Ordinario',
-            style: TextStyle(
+          child: Text(
+            texto,
+            style: const TextStyle(
               fontSize: 22.0,
               color: Colors.white70,
               fontWeight: FontWeight.bold,

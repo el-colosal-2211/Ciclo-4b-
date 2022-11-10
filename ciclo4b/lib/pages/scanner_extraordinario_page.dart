@@ -1,5 +1,6 @@
-import 'package:ciclo4b/pages/widgets/cuerpo_scan.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ciclo4b/widgets/widgets.dart';
 
 class ScanExtraordinarioPage extends StatelessWidget {
   const ScanExtraordinarioPage({super.key});
@@ -16,6 +17,7 @@ class ScanExtraordinarioPage extends StatelessWidget {
       ),
     );
     return Scaffold(
+      extendBody: true,
       body: Container(
         alignment: Alignment.center,
         decoration: boxDecoration,
@@ -24,12 +26,16 @@ class ScanExtraordinarioPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(30.0),
               child: CuerpoScan(
-                imagen:'assets/codigo_qr.png',
+                texto: 'Ingreso Extraordinario',
+                imagen: 'assets/codigo_qr.png',
               ),
             )
           ],
         ),
       ),
+      bottomNavigationBar: const CustomNavigationBar(),
+      floatingActionButton: const ScanButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

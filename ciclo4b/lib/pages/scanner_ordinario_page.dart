@@ -1,5 +1,6 @@
-import 'package:ciclo4b/pages/widgets/cuerpo_scan.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ciclo4b/widgets/widgets.dart';
 
 class ScanOrdinarioPage extends StatelessWidget {
   const ScanOrdinarioPage({super.key});
@@ -24,12 +25,16 @@ class ScanOrdinarioPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(30.0),
               child: CuerpoScan(
+                texto: 'Ingreso Ordinario',
                 imagen: 'assets/codigo_qr_ordinario.png',
               ),
             )
           ],
         ),
       ),
+      bottomNavigationBar: const CustomNavigationBar(),
+      floatingActionButton: const ScanButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

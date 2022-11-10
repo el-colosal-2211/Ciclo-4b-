@@ -1,11 +1,12 @@
 import 'package:ciclo4b/firebase_options.dart';
-import 'package:ciclo4b/pages/scanner_extraordinario_page.dart';
-import 'package:ciclo4b/pages/scanner_ordinario_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
 
-import 'package:ciclo4b/pages/login_page.dart';
-import 'package:ciclo4b/pages/opcion_scan_page.dart';
+import 'package:ciclo4b/pages/pages.dart';
+
+import 'package:ciclo4b/providers/ui_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,16 +22,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'CES APP',
-      initialRoute: 'scanner_extraordinario_page',
-      routes: {
-        'login_page': (_) => const LoginPage(),
-        'opcion_scan_page': (_) => const OpcionScanPage(),
-        'scanner_ordinario_page': (_) => const ScanOrdinarioPage(),
-        'scanner_extraordinario_page': (_) => const ScanExtraordinarioPage(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => UIProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'CES APP',
+        initialRoute: 'scanner_extraordinario_page',
+        routes: {
+          'login_page': (_) => const LoginPage(),
+          'opcion_scan_page': (_) => const OpcionScanPage(),
+          'scanner_ordinario_page': (_) => const ScanOrdinarioPage(),
+          'scanner_extraordinario_page': (_) => const ScanExtraordinarioPage(),
+        },
+      ),
     );
   }
 }
