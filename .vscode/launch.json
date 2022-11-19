@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ciclo4b",
+            "cwd": "ciclo4b",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ciclo4b (profile mode)",
+            "cwd": "ciclo4b",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ciclo4b (release mode)",
+            "cwd": "ciclo4b",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

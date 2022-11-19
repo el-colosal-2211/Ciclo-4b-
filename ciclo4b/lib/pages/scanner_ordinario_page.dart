@@ -33,9 +33,6 @@ class ScanOrdinarioPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomNavigationBar(),
-      floatingActionButton: const ScanButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

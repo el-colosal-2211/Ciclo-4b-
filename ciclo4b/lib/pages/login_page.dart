@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:ciclo4b/auth/repository/auth_repository.dart';
+
+
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 _header(),
                 _Formulario(),
-                _botton(),
+                _botton(context),
               ],
             ),
           ),
@@ -55,7 +58,8 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _botton() {
+  Widget _botton(BuildContext context) {
+    final AuthRepository user = AuthRepository();
     return Stack(
       alignment: Alignment.bottomLeft,
       children: [
@@ -79,7 +83,10 @@ class LoginPage extends StatelessWidget {
           top: 30,
           right: 160,
           child: GestureDetector(
-            onTap: () {},
+            onTap: () async {
+              await user.signInWithGoogle(context: context);
+              Navigator.pushNamed(context, 'opcion_scan_page');
+            },
             child: Container(
               margin: const EdgeInsets.only(top: 10.0),
               height: 50.0,
@@ -139,7 +146,7 @@ class _Formulario extends StatelessWidget {
         if (value == null || value.isEmpty) {
           return 'El correo electrónico es Obligatorio';
         }
-        if (!value.contains('@') && !value.contains('.')) {
+        if (!value.contains('@') || !value.contains('.')) {
           return 'El correo es inválido';
         }
         return null;
@@ -196,7 +203,7 @@ class _Formulario extends StatelessWidget {
         if (formKey.currentState!.validate()) {
           // TODO: Validar usuario y contraseña  en BD
 
-          Navigator.pushNamed(context, 'opcion_scan_page');
+          //Navigator.pushNamed(context, 'opcion_scan_page');
         }
       },
       child: const Padding(

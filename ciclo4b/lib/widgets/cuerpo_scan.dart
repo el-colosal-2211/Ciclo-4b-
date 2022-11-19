@@ -11,7 +11,7 @@ class CuerpoScan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _cabecera(),
+        _cabecera(context),
         const SizedBox(
           height: 120,
         ),
@@ -20,10 +20,14 @@ class CuerpoScan extends StatelessWidget {
     );
   }
 
-  Widget _cabecera() {
+  Widget _cabecera(BuildContext context) {
     return Row(
       children: [
-        const IconoAtras(),
+        IconoAtras(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         const SizedBox(width: 35.0),
         Container(
           margin: const EdgeInsets.only(top: 25),

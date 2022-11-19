@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:ciclo4b/pages/login_page.dart';
+import 'package:ciclo4b/auth/repository/auth_repository.dart';
+
 import 'package:ciclo4b/widgets/widgets.dart';
 
 class OpcionScanPage extends StatelessWidget {
@@ -14,6 +17,9 @@ class OpcionScanPage extends StatelessWidget {
           Container(
               margin: const EdgeInsets.only(left: 11),
               child: _botonIngresarExtraordinario(context)),
+          const SizedBox(
+            height: 20,
+          ),
           _botton(),
         ],
       ),
@@ -21,13 +27,26 @@ class OpcionScanPage extends StatelessWidget {
   }
 
   Widget _header(BuildContext context) {
+    final AuthRepository user = AuthRepository();
     return Stack(
       children: [
         Image.asset(
           'assets/opciones_scan_cabeza.png',
           fit: BoxFit.scaleDown,
         ),
-        const Positioned(top: 25, left: 5, child: IconoAtras()),
+        Positioned(
+          top: 25,
+          left: 5,
+          child: IconoAtras(
+            onPressed: () async {
+              var nav = Navigator.of(context);
+              user.signOut();
+              nav.pushReplacement(
+                  MaterialPageRoute(builder: (context) => LoginPage()));
+              print(user.user?.displayName);
+            },
+          ),
+        ),
         Positioned(top: 140, right: 80, child: _textoIngreso()),
         Positioned(
             bottom: 50, right: 25, child: _botonIngresarOrdinario(context)),
