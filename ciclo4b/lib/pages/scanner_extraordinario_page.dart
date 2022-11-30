@@ -33,6 +33,8 @@ class ScanExtraordinarioPage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: const ScanButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
