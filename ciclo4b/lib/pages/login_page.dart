@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 
+import 'package:ciclo4b/auth/repository/auth_repository.dart';
+
+
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _header(),
-            _Formulario(),
-            _botton(),
-          ],
-        ),
+      body: CustomScrollView(
+        scrollDirection: Axis.vertical,
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _header(),
+                _Formulario(),
+                _botton(context),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -21,24 +31,9 @@ class LoginPage extends StatelessWidget {
   Widget _header() {
     return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 35.0),
-          child: Image.asset(
-            'assets/login2.png',
-            fit: BoxFit.scaleDown,
-          ),
-        ),
-        // ClipRRect(
-        //   child: Flexible(
-        //     child: Image.asset(
-        //       'assets/login4.png',
-        //       fit: BoxFit.cover,
-        //     ),
-        //   ),
-        // ),
         Image.asset(
-          'assets/login1.png',
-          fit: BoxFit.contain,
+          'assets/login.png',
+          fit: BoxFit.scaleDown,
         ),
         Positioned(bottom: 0, right: 185, child: _textoIngreso())
       ],
@@ -63,20 +58,21 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _botton() {
+  Widget _botton(BuildContext context) {
+    final AuthRepository user = AuthRepository();
     return Stack(
       alignment: Alignment.bottomLeft,
       children: [
         SizedBox(
-          height: 170,
+          height: 172,
           child: Image.asset(
             'assets/login3.png',
-            fit: BoxFit.scaleDown,
+            fit: BoxFit.cover,
           ),
         ),
         Image.asset(
           'assets/login5.png',
-          fit: BoxFit.contain,
+          fit: BoxFit.cover,
         ),
         const Positioned(
           top: 0,
@@ -87,7 +83,10 @@ class LoginPage extends StatelessWidget {
           top: 30,
           right: 160,
           child: GestureDetector(
-            onTap: () {},
+            onTap: () async {
+              await user.signInWithGoogle(context: context);
+              Navigator.pushNamed(context, 'opcion_scan_page');
+            },
             child: Container(
               margin: const EdgeInsets.only(top: 10.0),
               height: 50.0,
@@ -117,7 +116,7 @@ class _Formulario extends StatelessWidget {
             _campoClave(),
             TextButton(
               onPressed: () {},
-              child: const Text('Olvidate la contraseña?'),
+              child: const Text('Olvidaste la contraseña?'),
             ),
             _botonIngresar(context),
             const SizedBox(height: 10.0),
@@ -140,15 +139,15 @@ class _Formulario extends StatelessWidget {
             Radius.circular(15.0),
           ),
         ),
-        labelText: 'Correo Electronico',
+        labelText: 'Correo Electrónico',
         labelStyle: TextStyle(fontWeight: FontWeight.bold),
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'El correo electronico es Obligatorio';
+          return 'El correo electrónico es Obligatorio';
         }
-        if (!value.contains('@') && !value.contains('.')) {
-          return 'El correo no es valido';
+        if (!value.contains('@') || !value.contains('.')) {
+          return 'El correo es inválido';
         }
         return null;
       },
@@ -176,13 +175,15 @@ class _Formulario extends StatelessWidget {
         labelStyle: TextStyle(fontWeight: FontWeight.bold),
       ),
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'La contraseña es Obligatorio';
-        }
         //TODO: Preguntar que  no esta validando esta condicion
-        if (value.length == 6) {
-          return "Debe contener 6 caracteres";
+        // if (value!.length > 6) {
+        //   return "Debe contener al menos 6 caracteres";
+        // }
+        if (value == null || value.isEmpty) {
+          return 'La contraseña es Obligatoria';
         }
+
+        return null;
       },
     );
   }
@@ -202,7 +203,7 @@ class _Formulario extends StatelessWidget {
         if (formKey.currentState!.validate()) {
           // TODO: Validar usuario y contraseña  en BD
 
-          Navigator.pushNamed(context, 'opcion_scan_page');
+          //Navigator.pushNamed(context, 'opcion_scan_page');
         }
       },
       child: const Padding(
