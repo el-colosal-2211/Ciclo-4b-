@@ -38,6 +38,7 @@ class AuthRepository {
         Future.error('Error de Autenticación de Usuario');
       }
     }
+    return null;
   }
 
   //Sign out
